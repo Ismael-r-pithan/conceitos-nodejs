@@ -26,7 +26,6 @@ function checksExistsUserAccount(request, response, next) {
 }
 
 app.post('/users', (request, response) => {
-  // Complete aqui
   const { name, username } = request.body;
 
   const userExists = users.find(user => user.username === username);
@@ -48,14 +47,12 @@ app.post('/users', (request, response) => {
 });
 
 app.get('/todos', checksExistsUserAccount, (request, response) => {
-  // Complete aqui
   const { user } = request;
   
   return response.json(user.todos);
 });
 
 app.post('/todos', checksExistsUserAccount, (request, response) => {
-  // Complete aqui
   const { user } = request;
   const { title, deadline } = request.body;
 
@@ -74,7 +71,6 @@ app.post('/todos', checksExistsUserAccount, (request, response) => {
 });
 
 app.put('/todos/:id', checksExistsUserAccount, (request, response) => {
-  // Complete aqui
   const { user } = request;
   const { title, deadline } = request.body;
   const { id } = request.params;
@@ -92,7 +88,6 @@ app.put('/todos/:id', checksExistsUserAccount, (request, response) => {
 });
 
 app.patch('/todos/:id/done', checksExistsUserAccount, (request, response) => {
-  // Complete aqui
   const { user } = request;
   const { id } = request.params;
   const todoExists = user.todos.find(todo => todo.id === id);
@@ -107,7 +102,6 @@ app.patch('/todos/:id/done', checksExistsUserAccount, (request, response) => {
 });
 
 app.delete('/todos/:id', checksExistsUserAccount, (request, response) => {
-  // Complete aqui
   const { user } = request;
   const { id } = request.params;
 
